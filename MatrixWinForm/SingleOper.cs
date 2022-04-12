@@ -77,6 +77,46 @@ namespace MatrixWinForm
             }
             return array_result;
         }
+
+        static public double[,] Addition(double[,] first_array, double[,] second_array, int razmer)
+        {
+            double[,] array_result = new double[razmer, razmer];
+            for (int i = 0; i < razmer; i++)
+            {
+                for (int j = 0; j < razmer; j++)
+                {
+                    array_result[i, j] = first_array[i, j] + second_array[i, j];
+                }
+            }
+            return array_result;
+        }
+        static public double[,] Subtraction(double[,] first_array, double[,] second_array, int razmer)
+        {
+            double[,] array_result = new double[razmer, razmer];
+            for (int i = 0; i < razmer; i++)
+            {
+                for (int j = 0; j < razmer; j++)
+                {
+                    array_result[i, j] = first_array[i, j] - second_array[i, j];
+                }
+            }
+            return array_result;
+        }
+        static public double[,] Multiplication(double[,] first_array, double[,] second_array, int razmer)
+        {
+            double[,] array_result = new double[razmer, razmer];
+            for (int i = 0; i < razmer; i++)
+            {
+                for (int j = 0; j < razmer; j++)
+                {
+                    for (int c = 0; c < razmer; c++)
+                    {
+                        array_result[i, j] += first_array[i, c] * second_array[c, j];
+                    }
+                }
+            }
+            return array_result;
+        }
     }
 }
 

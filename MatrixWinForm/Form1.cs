@@ -21,7 +21,7 @@ namespace MatrixWinForm
             checkBox1.Checked = true;
             groupBox2.Enabled = false;
             rank.Checked = true;
-            radioButton5.Checked = true;
+            
             textBox2.Hide();
             label2.Hide();
 
@@ -151,6 +151,24 @@ namespace MatrixWinForm
                 Operations();
         }
 
+        private void sum_rbtn_CheckedChanged(object sender, EventArgs e)
+        {
+            if (IsEmpty(dataGridView1) && IsEmpty(dataGridView2))
+                Operations();
+        }
+
+        private void sub_rbtn_CheckedChanged(object sender, EventArgs e)
+        {
+            if (IsEmpty(dataGridView1) && IsEmpty(dataGridView2))
+                Operations();
+        }
+
+        private void mult_rbtn_CheckedChanged(object sender, EventArgs e)
+        {
+            if (IsEmpty(dataGridView1) && IsEmpty(dataGridView2))
+                Operations();
+        }
+
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             if (textBox1.Text == "")
@@ -169,6 +187,7 @@ namespace MatrixWinForm
             //    }
             //}
             //dataGridView2.DataSource = array2;
+
             array1 = new double[razmer, razmer];
             array2 = new double[razmer, razmer];
         }
@@ -205,12 +224,21 @@ namespace MatrixWinForm
                     active_array = array2;
                 if (transpon.Checked)
                     array_result = SingleOper.Transpon(razmer, active_array);
-                if (stepen.Checked)
+                else if (stepen.Checked)
                 {
                     int stepen = int.Parse(textBox2.Text);
                     array_result = SingleOper.Square(razmer, active_array, stepen);
                 }
                 
+            }
+            else if(condition == 2 && (IsEmpty(dataGridView1) && (IsEmpty(dataGridView2))))
+            {
+                if (sum_rbtn.Checked)
+                    array_result = SingleOper.Addition(array1, array2, razmer);
+                else if (sub_rbtn.Checked)
+                    array_result = SingleOper.Subtraction(array1, array2, razmer);
+                else if (mult_rbtn.Checked)
+                    array_result = SingleOper.Multiplication(array1, array2, razmer);
             }
 
 
@@ -241,6 +269,19 @@ namespace MatrixWinForm
                 }
             }
             return true;
+        }
+
+        private double[,] Array_Resize(double[,] array, int razmer)
+        {
+            double[,] array_res = new double[razmer, razmer];
+            for (int i = 0; i < razmer; i++)
+            {
+                for (int j = 0; j < razmer; j++)
+                {
+                    array_res[i, j] = array[i, j];
+                }
+            }
+            return array_res;
         }
     }
 }

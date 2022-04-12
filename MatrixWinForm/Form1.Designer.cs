@@ -42,9 +42,9 @@ namespace MatrixWinForm
             this.opredel = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
-            this.radioButton7 = new System.Windows.Forms.RadioButton();
-            this.radioButton8 = new System.Windows.Forms.RadioButton();
+            this.sum_rbtn = new System.Windows.Forms.RadioButton();
+            this.sub_rbtn = new System.Windows.Forms.RadioButton();
+            this.mult_rbtn = new System.Windows.Forms.RadioButton();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -183,9 +183,9 @@ namespace MatrixWinForm
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.radioButton5);
-            this.groupBox2.Controls.Add(this.radioButton7);
-            this.groupBox2.Controls.Add(this.radioButton8);
+            this.groupBox2.Controls.Add(this.sum_rbtn);
+            this.groupBox2.Controls.Add(this.sub_rbtn);
+            this.groupBox2.Controls.Add(this.mult_rbtn);
             this.groupBox2.Location = new System.Drawing.Point(337, 338);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(411, 53);
@@ -193,38 +193,42 @@ namespace MatrixWinForm
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Действия с двумя матрицами";
             // 
-            // radioButton5
+            // sum_rbtn
             // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Location = new System.Drawing.Point(6, 22);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(82, 19);
-            this.radioButton5.TabIndex = 10;
-            this.radioButton5.TabStop = true;
-            this.radioButton5.Text = "Сложение";
-            this.radioButton5.UseVisualStyleBackColor = true;
+            this.sum_rbtn.AutoSize = true;
+            this.sum_rbtn.Checked = true;
+            this.sum_rbtn.Location = new System.Drawing.Point(6, 22);
+            this.sum_rbtn.Name = "sum_rbtn";
+            this.sum_rbtn.Size = new System.Drawing.Size(82, 19);
+            this.sum_rbtn.TabIndex = 10;
+            this.sum_rbtn.TabStop = true;
+            this.sum_rbtn.Text = "Сложение";
+            this.sum_rbtn.UseVisualStyleBackColor = true;
+            this.sum_rbtn.CheckedChanged += new System.EventHandler(this.sum_rbtn_CheckedChanged);
             // 
-            // radioButton7
+            // sub_rbtn
             // 
-            this.radioButton7.AutoSize = true;
-            this.radioButton7.Location = new System.Drawing.Point(106, 22);
-            this.radioButton7.Name = "radioButton7";
-            this.radioButton7.Size = new System.Drawing.Size(86, 19);
-            this.radioButton7.TabIndex = 11;
-            this.radioButton7.TabStop = true;
-            this.radioButton7.Text = "Вычитание";
-            this.radioButton7.UseVisualStyleBackColor = true;
+            this.sub_rbtn.AutoSize = true;
+            this.sub_rbtn.Location = new System.Drawing.Point(106, 22);
+            this.sub_rbtn.Name = "sub_rbtn";
+            this.sub_rbtn.Size = new System.Drawing.Size(86, 19);
+            this.sub_rbtn.TabIndex = 11;
+            this.sub_rbtn.TabStop = true;
+            this.sub_rbtn.Text = "Вычитание";
+            this.sub_rbtn.UseVisualStyleBackColor = true;
+            this.sub_rbtn.CheckedChanged += new System.EventHandler(this.sub_rbtn_CheckedChanged);
             // 
-            // radioButton8
+            // mult_rbtn
             // 
-            this.radioButton8.AutoSize = true;
-            this.radioButton8.Location = new System.Drawing.Point(206, 22);
-            this.radioButton8.Name = "radioButton8";
-            this.radioButton8.Size = new System.Drawing.Size(90, 19);
-            this.radioButton8.TabIndex = 12;
-            this.radioButton8.TabStop = true;
-            this.radioButton8.Text = "Умножение";
-            this.radioButton8.UseVisualStyleBackColor = true;
+            this.mult_rbtn.AutoSize = true;
+            this.mult_rbtn.Location = new System.Drawing.Point(206, 22);
+            this.mult_rbtn.Name = "mult_rbtn";
+            this.mult_rbtn.Size = new System.Drawing.Size(90, 19);
+            this.mult_rbtn.TabIndex = 12;
+            this.mult_rbtn.TabStop = true;
+            this.mult_rbtn.Text = "Умножение";
+            this.mult_rbtn.UseVisualStyleBackColor = true;
+            this.mult_rbtn.CheckedChanged += new System.EventHandler(this.mult_rbtn_CheckedChanged);
             // 
             // richTextBox1
             // 
@@ -298,9 +302,9 @@ namespace MatrixWinForm
         private System.Windows.Forms.RadioButton opredel;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.RadioButton radioButton5;
-        private System.Windows.Forms.RadioButton radioButton7;
-        private System.Windows.Forms.RadioButton radioButton8;
+        private System.Windows.Forms.RadioButton sum_rbtn;
+        private System.Windows.Forms.RadioButton sub_rbtn;
+        private System.Windows.Forms.RadioButton mult_rbtn;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox2;
