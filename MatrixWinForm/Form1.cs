@@ -18,18 +18,27 @@ namespace MatrixWinForm
         public Form1()
         {
             InitializeComponent();
+            OpredelitelLabel.Show();
             checkBox1.Checked = true;
             groupBox2.Enabled = false;
-            rank.Checked = true;
+            
             
             textBox2.Hide();
             label2.Hide();
 
+            //OpredelitelLabel.Hide();
+
             textBox1.Text = "3";
-            dataGridView1.RowHeadersWidth = 4;
-            dataGridView2.RowHeadersWidth = 4;
-            dataGridView1.ColumnHeadersHeight = 4;
-            dataGridView2.ColumnHeadersHeight = 4;
+            dataGridView1.ColumnHeadersVisible = false;
+            dataGridView1.RowHeadersVisible = false;
+            foreach (DataGridViewColumn column in dataGridView1.Columns)
+                column.Width = 30;
+            foreach (DataGridViewColumn column in dataGridView2.Columns)
+                column.Width = 30;
+
+            dataGridView2.ColumnHeadersVisible = false;
+            dataGridView2.RowHeadersVisible = false;
+
             dataGridView1.AllowUserToAddRows = false;
             dataGridView2.AllowUserToAddRows = false;
             dataGridView1.AllowUserToDeleteRows = false;
@@ -187,13 +196,46 @@ namespace MatrixWinForm
             //    }
             //}
             //dataGridView2.DataSource = array2;
-
+            foreach (DataGridViewColumn column in dataGridView1.Columns)
+                column.Width = 30;
+            foreach (DataGridViewColumn column in dataGridView2.Columns)
+                column.Width = 30;
             array1 = new double[razmer, razmer];
             array2 = new double[razmer, razmer];
         }
 
+        private void opredel_CheckedChanged(object sender, EventArgs e)
+        {
+            if (IsEmpty(active_datagridview))
+            {
+                Operations();
+            }
 
-     
+            if ((sender as RadioButton).Checked)
+            {
+                OpredelitelLabel.Show();
+            }
+            else
+            {
+                OpredelitelLabel.Hide();
+            }
+        }
+
+        private void rank_CheckedChanged(object sender, EventArgs e)
+        {
+            if (IsEmpty(active_datagridview))
+            {
+                Operations();
+            }
+            if ((sender as RadioButton).Checked)
+            {
+                OpredelitelLabel.Show();
+            }
+            else
+            {
+                OpredelitelLabel.Hide();
+            }
+        }
 
         private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
@@ -212,6 +254,10 @@ namespace MatrixWinForm
 
         private void Operations()
         {
+            dataGridView3.ColumnHeadersVisible = false;
+            dataGridView3.RowHeadersVisible = false;
+            foreach (DataGridViewColumn column in dataGridView3.Columns)
+                column.Width = 30;
             dataGridView3.RowCount = razmer;
             dataGridView3.ColumnCount = razmer;
 
@@ -228,6 +274,15 @@ namespace MatrixWinForm
                 {
                     int stepen = int.Parse(textBox2.Text);
                     array_result = SingleOper.Square(razmer, active_array, stepen);
+                }
+                else if (opredel.Checked)
+                {
+                    OpredelitelLabel.Text = ("Определитель: "+SingleOper.Opredelitel(razmer, active_array).ToString());
+                    array_result = active_array;
+                }
+                else if (rank.Checked){
+                    array_result = active_array;
+                    OpredelitelLabel.Text = ("Ранг матрицы: " + SingleOper.Rank(razmer, active_array).ToString());
                 }
                 
             }

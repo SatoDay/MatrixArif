@@ -48,6 +48,7 @@ namespace MatrixWinForm
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.OpredelitelLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
@@ -133,6 +134,8 @@ namespace MatrixWinForm
             this.rank.TabStop = true;
             this.rank.Text = "Ранг";
             this.rank.UseVisualStyleBackColor = true;
+            this.rank.Checked = true;
+            this.rank.CheckedChanged += new System.EventHandler(this.rank_CheckedChanged);
             // 
             // stepen
             // 
@@ -167,6 +170,7 @@ namespace MatrixWinForm
             this.opredel.TabStop = true;
             this.opredel.Text = "Определитель";
             this.opredel.UseVisualStyleBackColor = true;
+            this.opredel.CheckedChanged += new System.EventHandler(this.opredel_CheckedChanged);
             // 
             // groupBox1
             // 
@@ -256,11 +260,21 @@ namespace MatrixWinForm
             this.textBox2.Text = "1";
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
+            // OpredelitelLabel
+            // 
+            this.OpredelitelLabel.AutoSize = true;
+            this.OpredelitelLabel.Location = new System.Drawing.Point(834, 458);
+            this.OpredelitelLabel.Name = "OpredelitelLabel";
+            this.OpredelitelLabel.Size = new System.Drawing.Size(38, 15);
+            this.OpredelitelLabel.TabIndex = 18;
+            this.OpredelitelLabel.Text = "label3";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1177, 747);
+            this.Controls.Add(this.OpredelitelLabel);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.richTextBox1);
@@ -308,6 +322,7 @@ namespace MatrixWinForm
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label OpredelitelLabel;
     }
 }
 
